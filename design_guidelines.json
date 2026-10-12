@@ -1,0 +1,148 @@
+{
+  "theme": "poetic-dark",
+  "archetype": "ARCHETYPE 5: LUXURY (Premium, Depth, Mystery)",
+  "emotional_tone": "Empathetic, poetic, delicate, ethereal, never salesy, atmospheric.",
+  "colors": {
+    "background": "#05050A",
+    "background_secondary": "#0A0A12",
+    "primary": "#D4AF37",
+    "primary_glow": "#F9E596",
+    "text_primary": "#EAEAEA",
+    "text_secondary": "#A0A0B0",
+    "border": "rgba(212, 175, 55, 0.15)",
+    "overlay": "rgba(5, 5, 10, 0.7)"
+  },
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond",
+      "style": "serif",
+      "weight": "font-light",
+      "tracking": "tracking-wide"
+    },
+    "body": {
+      "family": "Lora",
+      "style": "serif",
+      "weight": "font-light",
+      "tracking": "tracking-normal"
+    },
+    "rules": [
+      "No generic sans fonts for headings. Always use Cormorant Garamond for display.",
+      "Headings should use fluid scaling but never exceed text-6xl.",
+      "Masked line-by-line reveal for hero text."
+    ]
+  },
+  "layouts": {
+    "spacing": "Generous spacing. Use py-24 or py-32 for sections. Elements should breathe.",
+    "home_cards": "3 large un-cramped cards for (Il libro, Le 7 notti, La lettera). Use a responsive grid (1 col mobile, 3 cols desktop) with tall aspect ratios (e.g., aspect-[3/4]).",
+    "spotlight_cover": "For /libro, the cover image takes a prominent, slightly offset sticky position while narrative scrolls.",
+    "letter_page": "Centered poetic alignment, minimal UI. Focus entirely on the textarea and the emotional act of writing."
+  },
+  "motion_and_interactions": {
+    "scroll": "Lenis smooth scroll is MANDATORY. It gives the necessary weight and poetic pacing.",
+    "hero_reveal": "Framer motion for text reveal: split text by lines, translateY with stagger and opacity.",
+    "floating_butterfly": "Framer motion animate={{ y: [0, -10, 0], rotate: [-2, 2, -2] }} with slow, repeating transition.",
+    "candle_pulse": "CSS animation or Framer Motion for a slow opacity pulse (0.6 to 1) on gold accent glows.",
+    "wind_petals": "On /lettera submission, trigger a framer-motion sequence for petals blowing away across the screen before PDF download.",
+    "parallax": "Subtle parallax on background starry textures and the solitary tree/ocean covers."
+  },
+  "pages_and_routing": {
+    "home": {
+      "path": "/",
+      "sections": [
+        "Hero: Night sky, stars, golden butterfly, text 'Se la sera tutto diventa più difficile…'",
+        "Cards: 3 large linkable cards (Il libro, Le 7 notti, La lettera)",
+        "YouTube embed section with delicate borders",
+        "Slow editorial marquee (react-fast-marquee) with emotional quotes",
+        "Footer: Social links (IG @il_dolore_ha_il_tuo_nome, FB /ildolorehailtuonome)"
+      ]
+    },
+    "libro": {
+      "path": "/libro",
+      "sections": [
+        "Spotlight Cover Layout",
+        "Narrative of the 4 parts",
+        "Curated Quotes",
+        "CTA to Amazon (Link provided by user, NO prices)"
+      ]
+    },
+    "le_7_notti": {
+      "path": "/le-7-notti",
+      "sections": [
+        "Preview of the 7 nights with quotes",
+        "CTA to Beacons (Button active with placeholder 'in arrivo', NO prices)"
+      ]
+    },
+    "lettera": {
+      "path": "/lettera",
+      "sections": [
+        "Textarea styled like vintage paper for letter to a lost loved one",
+        "Submit action: Animation of wind/petals flying away",
+        "Client-side PDF download using jspdf and html2canvas"
+      ]
+    }
+  },
+  "image_urls": {
+    "night_sky_texture": {
+      "url": "https://images.unsplash.com/photo-1628498188873-579210ce622e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHw0fHxzdGFycnklMjBuaWdodCUyMHNreSUyMGRhcmt8ZW58MHx8fHwxNzkxODE4NTIxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Starry night sky texture for the hero background",
+      "usage": "Background layer with low opacity and slight parallax"
+    },
+    "candle_light": {
+      "url": "https://images.unsplash.com/photo-1601379327279-44b026715787?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwyfHxjYW5kbGUlMjBsaWdodCUyMGRhcmslMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc5MTgxODUyMXww&ixlib=rb-4.1.0&q=85",
+      "description": "Lighted candle in dark room",
+      "usage": "Use as a glowing accent or section background with mix-blend-screen"
+    },
+    "golden_butterfly": {
+      "url": "https://images.unsplash.com/photo-1659642897690-df104e60e22e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxnb2xkZW4lMjBidXR0ZXJmbHl8ZW58MHx8fHwxNzkxODE4NTIxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Placeholder golden butterfly",
+      "usage": "Floating near the Sabrina M. signature. Mask out background or use CSS drop-shadow to make it glow."
+    },
+    "paper_texture": {
+      "url": "https://images.unsplash.com/photo-1603484477859-abe6a73f9366?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwzfHx2aW50YWdlJTIwcGFwZXIlMjB0ZXh0dXJlfGVufDB8fHx8MTc5MTgxODUyMHww&ixlib=rb-4.1.0&q=85",
+      "description": "Vintage crumpled paper texture",
+      "usage": "Background for the letter textarea in /lettera"
+    },
+    "falling_petals": {
+      "url": "https://images.unsplash.com/photo-1571506534699-c76894c03ce7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxmYWxsaW5nJTIwcGV0YWxzfGVufDB8fHx8MTc5MTgxODUyMXww&ixlib=rb-4.1.0&q=85",
+      "description": "Red/pink petals",
+      "usage": "Use individually extracted in the Framer Motion wind animation, or as a texture overlay."
+    },
+    "book_cover_placeholder_1": {
+      "url": "https://images.unsplash.com/photo-1621840090029-08b00c831808?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxzb2xpdGFyeSUyMHRyZWUlMjBmb2clMjBkYXJrfGVufDB8fHx8MTc5MTgxODUyMXww&ixlib=rb-4.1.0&q=85",
+      "description": "Solitary tree silhouette in night fog",
+      "usage": "Placeholder cover for 'Il dolore ha il tuo nome' book"
+    },
+    "book_cover_placeholder_2": {
+      "url": "https://images.unsplash.com/photo-1565214975484-3cfa9e56f914?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxkYXJrJTIwcG9ldGljJTIwb2NlYW4lMjBtb29keXxlbnwwfHx8fDE3OTE4MTg1Mjd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark crashing waves",
+      "usage": "Placeholder cover for 'Le 7 notti'"
+    }
+  },
+  "components_and_libraries": {
+    "framer_motion": "For page transitions, scroll reveals, floating butterfly, and the wind/petals animation.",
+    "lenis": "For smooth scrolling. Wrap the app or layout in a ReactLenis component.",
+    "lucide_react": "For subtle icons (e.g., download, play).",
+    "react_fast_marquee": "For the slow editorial text marquee.",
+    "html2pdf_or_jspdf": "For client-side PDF generation in the /lettera page. html2canvas + jspdf is reliable.",
+    "shadcn_ui": "Use sparingly. Buttons should be highly customized (pill-shaped, gold accents, no harsh backgrounds)."
+  },
+  "instructions_to_main_agent": [
+    "CRITICAL: You MUST use .js and .jsx files. DO NOT use TypeScript (.tsx/.ts) files, despite what the user's raw prompt says.",
+    "No prices should be displayed anywhere. This is a delicate, emotional experience.",
+    "Ensure the hero has a dark, starry atmosphere with a glowing, pulsing candle effect (CSS box-shadow/radial-gradient) and a floating butterfly.",
+    "Use Framer Motion to mask and reveal the hero text line-by-line: 'Se la sera tutto diventa più difficile…'",
+    "Add 'Sabrina M.' as a signature text with the butterfly near it (No photos of Sabrina).",
+    "In /libro, highlight the cover and tell the story of the 4 parts beautifully with high contrast elegant typography.",
+    "In /lettera, provide a textarea. On submit, trigger a wind/petal animation (framer-motion elements flying top-right) and download the letter as PDF.",
+    "Use generous padding, deep dark blue/black backgrounds, and gold text accents.",
+    "Include data-testid on all interactive elements (buttons, textareas, links)."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not converge toward generic AI slop. Create an extraordinary, delicate, and deeply emotional UI.",
+    "Never apply universal transition: all. Target specific properties.",
+    "Do not center-align the app container (.App { text-align: center; } is banned).",
+    "Use 2-3x more spacing than feels comfortable. Empty space is emotional space.",
+    "Do not use transparent backgrounds under text unless heavily blurred with backdrop-filter or darkened.",
+    "Always include the provided image URLs as placeholders until user assets arrive."
+  ]
+}
