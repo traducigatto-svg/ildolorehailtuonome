@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import { ButterflyMark } from "@/components/Butterfly";
 import { FadeUp } from "@/components/Reveal";
 import { LINKS, NAV_ITEMS } from "@/constants";
@@ -81,16 +81,6 @@ const Footer = () => {
                             className="rounded-full border border-gold/25 p-3 text-gold transition-[background-color,border-color] duration-300 hover:border-gold hover:bg-gold/10"
                         >
                             <Facebook className="h-4 w-4" />
-                        </a>
-                        <a
-                            href={LINKS.youtubeSong}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-testid="social-youtube"
-                            aria-label="La canzone Nel silenzio di te su YouTube"
-                            className="rounded-full border border-gold/25 p-3 text-gold transition-[background-color,border-color] duration-300 hover:border-gold hover:bg-gold/10"
-                        >
-                            <Youtube className="h-4 w-4" />
                         </a>
                     </div>
                 </div>

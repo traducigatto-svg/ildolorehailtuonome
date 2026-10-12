@@ -4,9 +4,10 @@ import { Download, Wind, PenLine } from "lucide-react";
 import { jsPDF } from "jspdf";
 import Seo from "@/components/Seo";
 import StarrySky from "@/components/StarrySky";
-import Butterfly, { ButterflyMark } from "@/components/Butterfly";
+import Butterfly from "@/components/Butterfly";
 import { LineReveal, FadeUp } from "@/components/Reveal";
 import CTAButton from "@/components/CTAButton";
+import { ASSETS } from "@/constants";
 
 const Eyebrow = ({ children }) => (
     <p className="text-[11px] uppercase tracking-[0.35em] text-gold/80">
@@ -85,52 +86,70 @@ const WindRelease = ({ words, onDone }) => {
     );
 };
 
-const downloadPdf = (text) => {
-    const doc = new jsPDF({ unit: "mm", format: "a4" });
-    const pageHeight = 297;
-    const margin = 24;
-    let y = 34;
+const loadImage = (src) =>
+    new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+    });
 
+const downloadPdf = async (text) => {
+    const [paper, farfalla, seal] = await Promise.all([
+        loadImage(ASSETS.carta),
+        loadImage(ASSETS.farfalla),
+        loadImage(ASSETS.logo),
+    ]);
+    const doc = new jsPDF({ unit: "mm", format: "a4" });
+    const paintPaper = () => doc.addImage(paper, "JPEG", 0, 0, 210, 297);
+    paintPaper();
+
+    doc.addImage(farfalla, "PNG", 93, 15, 24, 21);
     doc.setFont("times", "italic");
-    doc.setFontSize(20);
-    doc.text("La mia lettera", margin, y);
-    y += 9;
-    doc.setFontSize(10);
-    doc.setTextColor(120, 105, 70);
+    doc.setFontSize(21);
+    doc.setTextColor(74, 58, 30);
+    doc.text("La mia lettera", 105, 52, { align: "center" });
+    doc.setFontSize(10.5);
+    doc.setTextColor(122, 101, 62);
     doc.text(
         new Date().toLocaleDateString("it-IT", {
             day: "numeric",
             month: "long",
             year: "numeric",
         }),
-        margin,
-        y,
+        105,
+        61,
+        { align: "center" },
     );
-    y += 12;
-    doc.setDrawColor(180, 155, 90);
-    doc.line(margin, y, 186, y);
-    y += 12;
+    doc.setDrawColor(170, 142, 82);
+    doc.line(58, 67, 152, 67);
 
     doc.setFontSize(12.5);
-    doc.setTextColor(45, 38, 24);
-    const lines = doc.splitTextToSize(text, 162);
+    doc.setTextColor(48, 39, 22);
+    const lines = doc.splitTextToSize(text, 158);
+    let y = 82;
     lines.forEach((line) => {
-        if (y > pageHeight - 30) {
+        if (y > 256) {
             doc.addPage();
-            y = 30;
+            paintPaper();
+            y = 34;
         }
-        doc.text(line, margin, y);
-        y += 7.2;
+        doc.text(line, 26, y);
+        y += 7.4;
     });
 
-    if (y > pageHeight - 34) {
+    y += 6;
+    if (y > 238) {
         doc.addPage();
+        paintPaper();
         y = 30;
     }
-    y += 10;
-    doc.setFontSize(10);
-    doc.setTextColor(120, 105, 70);
-    doc.text("— scritta nel silenzio · il dolore ha il tuo nome", margin, y);
+    doc.addImage(seal, "PNG", 89, y, 32, 32);
+    doc.setFontSize(9.5);
+    doc.setTextColor(122, 101, 62);
+    doc.text("scritta nel silenzio · il dolore ha il tuo nome", 105, y + 38, {
+        align: "center",
+    });
 
     doc.save("la-mia-lettera.pdf");
 };
@@ -216,7 +235,12 @@ const Lettera = () => {
                             transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
                             className="mt-14"
                         >
-                            <div className="letter-paper relative rounded-md p-8 shadow-[0_40px_100px_rgba(0,0,0,0.7)] sm:p-12">
+                            <div
+                                className="letter-paper relative rounded-md p-8 shadow-[0_40px_100px_rgba(0,0,0,0.7)] sm:p-12"
+                                style={{
+                                    backgroundImage: `linear-gradient(rgba(245,238,220,0.94), rgba(238,228,204,0.96)), url('${ASSETS.carta}')`,
+                                }}
+                            >
                                 <PenLine
                                     className="absolute right-8 top-8 h-5 w-5 text-[#8a6d1f]/50"
                                     aria-hidden="true"
@@ -267,7 +291,11 @@ const Lettera = () => {
                             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
                             className="mt-20 text-center"
                         >
-                            <ButterflyMark className="mx-auto mb-8 h-12 w-12" />
+                            <img
+                                src={ASSETS.logo}
+                                alt="Il dolore ha il tuo nome"
+                                className="mx-auto mb-8 h-24 w-24 rounded-full shadow-[0_0_45px_rgba(212,175,55,0.35)]"
+                            />
                             <p className="mx-auto max-w-xl font-display text-2xl font-light italic leading-relaxed text-ink sm:text-3xl">
                                 È andata, leggera. E tu sei ancora qui —
                                 <span className="text-gold-glow"> e questo basta.</span>

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import NightAudio from "@/components/NightAudio";
 import Home from "@/pages/Home";
 import Libro from "@/pages/Libro";
 import Notti from "@/pages/Notti";
@@ -31,6 +32,7 @@ function App() {
                         <Route path="*" element={<Home />} />
                     </Routes>
                     <Footer />
+                    <NightAudio />
                 </BrowserRouter>
             </div>
         </ReactLenis>

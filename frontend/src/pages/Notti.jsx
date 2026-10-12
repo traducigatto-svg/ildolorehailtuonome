@@ -88,7 +88,7 @@ const Notti = () => {
                                 con lui.
                             </p>
                             <div className="mt-10">
-                                <CTAButton href={LINKS.beacons} testid="notti-beacons-cta">
+                                <CTAButton href={LINKS.beacons} sub="su Beacons" testid="notti-beacons-cta">
                                     Resta con me per sette notti
                                 </CTAButton>
                             </div>
@@ -105,7 +105,7 @@ const Notti = () => {
                         />
                         <motion.img
                             src={IMAGES.coverNotti}
-                            alt="Copertina de Le 7 notti: onde scure nella notte"
+                            alt="Copertina de Le 7 notti di Sabrina M.: una lanterna accesa davanti alla notte"
                             className="relative mx-auto aspect-[3/4] w-full max-w-sm rounded-lg border border-gold/25 object-cover shadow-[0_40px_100px_rgba(0,0,0,0.75)]"
                             initial={{ opacity: 0, y: 40, rotate: -2 }}
                             animate={{ opacity: 1, y: 0, rotate: 0 }}
@@ -168,11 +168,7 @@ const Notti = () => {
                 </div>
             </section>
 
-            <section
-                id="in-arrivo"
-                data-testid="notti-in-arrivo"
-                className="relative overflow-hidden"
-            >
+            <section data-testid="notti-acquista" className="relative overflow-hidden">
                 <div
                     className="candle-glow pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full"
                     style={{
@@ -183,24 +179,15 @@ const Notti = () => {
                 />
                 <div className="relative mx-auto max-w-2xl px-6 py-28 text-center sm:py-36">
                     <FadeUp>
-                        <Eyebrow>Disponibile a breve</Eyebrow>
+                        <Eyebrow>Sette notti, una alla volta</Eyebrow>
                         <p className="mt-6 font-display text-2xl font-light italic leading-relaxed text-ink sm:text-3xl">
-                            «Le 7 notti» sta arrivando.
+                            Quando vuoi. Anche stanotte.
                         </p>
-                        <p className="mx-auto mt-5 max-w-md text-sm leading-loose text-mist sm:text-base">
-                            Il passo è quasi pronto. Segui{" "}
-                            <a
-                                href={LINKS.instagram}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                data-testid="notti-instagram-link"
-                                className="text-gold underline decoration-gold/30 underline-offset-4 transition-colors duration-300 hover:text-gold-glow"
-                            >
-                                @il_dolore_ha_il_tuo_nome
-                            </a>{" "}
-                            per sapere quando sarà disponibile — sarà una delle
-                            prime cose che dirò.
-                        </p>
+                        <div className="mt-10">
+                            <CTAButton href={LINKS.beacons} sub="su Beacons" testid="notti-beacons-cta-2">
+                                Comincia stanotte
+                            </CTAButton>
+                        </div>
                     </FadeUp>
                 </div>
             </section>

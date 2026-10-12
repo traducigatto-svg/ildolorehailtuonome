@@ -20,7 +20,7 @@ const CARDS = [
         to: "/libro",
         testid: "card-libro",
         img: IMAGES.coverLibro,
-        alt: "Copertina del libro guidato Il dolore ha il tuo nome: un albero solitario nella nebbia notturna",
+        alt: "Copertina del libro guidato Il dolore ha il tuo nome di Sabrina M.",
         eyebrow: "Il cuore",
         title: "Il libro",
         desc: "Un libro guidato per elaborare il lutto, custodire chi ami e tornare a vivere.",
@@ -29,7 +29,7 @@ const CARDS = [
         to: "/le-7-notti",
         testid: "card-notti",
         img: IMAGES.coverNotti,
-        alt: "Copertina de Le 7 notti: onde scure sotto un cielo notturno",
+        alt: "Copertina de Le 7 notti di Sabrina M.: una lanterna accesa davanti alla notte",
         eyebrow: "Il primo passo",
         title: "Le 7 notti",
         desc: "Se un libro intero ti sembra troppo, comincia da sette notti.",
@@ -312,18 +312,25 @@ const Song = () => (
             </p>
         </FadeUp>
         <FadeUp delay={0.2} className="mt-12">
-            <div className="overflow-hidden rounded-2xl border border-gold/20 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
-                <div className="aspect-video">
-                    <iframe
-                        src={LINKS.youtubeEmbed}
-                        title="Nel silenzio di te — la canzone"
-                        data-testid="youtube-embed"
-                        className="h-full w-full"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    />
+            <div className="relative">
+                <div className="overflow-hidden rounded-2xl border border-gold/20 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
+                    <div className="aspect-video">
+                        <iframe
+                            src={LINKS.youtubeEmbed}
+                            title="Nel silenzio di te — la canzone"
+                            data-testid="youtube-embed"
+                            className="h-full w-full"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
+                    </div>
                 </div>
+                <div
+                    className="absolute inset-x-0 top-0 h-16 rounded-t-2xl bg-gradient-to-b from-night via-night/90 to-transparent"
+                    data-testid="youtube-channel-mask"
+                    aria-hidden="true"
+                />
             </div>
         </FadeUp>
     </section>

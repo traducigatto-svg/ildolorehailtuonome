@@ -6,7 +6,7 @@ import Butterfly from "@/components/Butterfly";
 import { LineReveal, FadeUp } from "@/components/Reveal";
 import CTAButton from "@/components/CTAButton";
 import QuoteMarquee from "@/components/Marquee";
-import { LINKS, IMAGES } from "@/constants";
+import { LINKS, IMAGES, ASSETS } from "@/constants";
 
 const Eyebrow = ({ children }) => (
     <p className="text-[11px] uppercase tracking-[0.35em] text-gold/80">
@@ -76,14 +76,21 @@ const Libro = () => {
                                     }}
                                     aria-hidden="true"
                                 />
-                                <motion.img
-                                    src={IMAGES.coverLibro}
-                                    alt="Copertina del libro guidato Il dolore ha il tuo nome di Sabrina M."
+                                <motion.video
+                                    src={ASSETS.videoLibro}
+                                    poster={IMAGES.coverLibro}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="metadata"
+                                    data-testid="libro-cover-video"
+                                    aria-label="Il dolore ha il tuo nome — la copertina si anima con farfalle dorate"
                                     className="relative mx-auto aspect-[3/4] w-full max-w-md rounded-lg border border-gold/25 object-cover shadow-[0_40px_100px_rgba(0,0,0,0.75)]"
                                     initial={{ opacity: 0, y: 40, rotate: 2 }}
                                     animate={{ opacity: 1, y: 0, rotate: 0 }}
                                     transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                                    whileHover={{ rotate: -1.2, scale: 1.015 }}
+                                    whileHover={{ scale: 1.015 }}
                                 />
                                 <Butterfly className="absolute -right-4 -top-8" size="h-12 w-12" delay={1.4} />
                             </div>
@@ -161,7 +168,7 @@ const Libro = () => {
                                 className="mt-7 inline-flex items-center gap-2.5 text-sm italic text-mist transition-colors duration-300 hover:text-gold-glow"
                             >
                                 <Music className="h-4 w-4 text-gold" />
-                                Con il libro, in regalo, la canzone completa «Nel silenzio di te»
+                                Ascolta la canzone che ho scritto, «Nel silenzio di te» — ti ci rivedrai
                             </a>
                         </FadeUp>
                     </div>
