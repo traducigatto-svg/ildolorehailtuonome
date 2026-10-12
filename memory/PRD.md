@@ -27,6 +27,13 @@ Atmosfera: notte, farfalla dorata, cielo stellato, luce di candela che pulsa, ve
 - PDF lettera generato lato client, nessun server/email/account
 - SEO: title/description, keyword naturali, OG/Twitter card, JSON-LD Book, sitemap.xml, robots.txt
 
+## Implementato (12/10/2026 — giro di correzioni funnel)
+- Tutti i pulsanti prodotto (libro e 7 notti, ovunque compaiano: home, /libro, /le-7-notti, /lettera) portano DIRETTAMENTE al link d'acquisto (Amazon / Beacons) con target=_blank, mai alla pagina interna
+- Tolta la dicitura "su Beacons" dalle CTA delle 7 notti (resta "su Amazon" per il libro)
+- /lettera: soft CTA anche per chi non invia — "nel libro guidato c'è tanto spazio per scrivere" → /libro
+- /libro: sotto "Ascolta la canzone che ho scritto" ora appare il link visibile youtu.be/kOFFR8dTbak
+- Copertine non più mozzate: video libro a ratio naturale (fix mobile), card home con object-contain, highlight libro a 2:3
+
 ## Implementato (12/10/2026 — revisione con asset reali)
 - Asset reali integrati: copertina libro, copertina Le 7 notti, logo tondo (sfondo reso trasparente, cerchio) in /public/assets
 - Farfalla VERA estratta dal logo (PNG trasparente con glow): nav, hero, firme, marquee, favicon, PDF

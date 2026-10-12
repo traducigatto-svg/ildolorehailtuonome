@@ -86,7 +86,7 @@ const Libro = () => {
                                     preload="metadata"
                                     data-testid="libro-cover-video"
                                     aria-label="Il dolore ha il tuo nome — la copertina si anima con farfalle dorate"
-                                    className="relative mx-auto aspect-[3/4] w-full max-w-md rounded-lg border border-gold/25 object-cover shadow-[0_40px_100px_rgba(0,0,0,0.75)]"
+                                    className="relative mx-auto w-full max-w-md rounded-lg border border-gold/25 shadow-[0_40px_100px_rgba(0,0,0,0.75)]"
                                     initial={{ opacity: 0, y: 40, rotate: 2 }}
                                     animate={{ opacity: 1, y: 0, rotate: 0 }}
                                     transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -160,16 +160,27 @@ const Libro = () => {
                                     Tienilo vicino nelle notti difficili
                                 </CTAButton>
                             </div>
-                            <a
-                                href={LINKS.youtubeSong}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                data-testid="libro-bonus-song"
-                                className="mt-7 inline-flex items-center gap-2.5 text-sm italic text-mist transition-colors duration-300 hover:text-gold-glow"
-                            >
-                                <Music className="h-4 w-4 text-gold" />
-                                Ascolta la canzone che ho scritto, «Nel silenzio di te» — ti ci rivedrai
-                            </a>
+                            <div className="mt-7">
+                                <a
+                                    href={LINKS.youtubeSong}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-testid="libro-bonus-song"
+                                    className="inline-flex items-center gap-2.5 text-sm italic text-mist transition-colors duration-300 hover:text-gold-glow"
+                                >
+                                    <Music className="h-4 w-4 text-gold" />
+                                    Ascolta la canzone che ho scritto, «Nel silenzio di te» — ti ci rivedrai
+                                </a>
+                                <a
+                                    href={LINKS.youtubeSong}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    data-testid="libro-song-link"
+                                    className="mt-2 block pl-7 text-xs tracking-wide text-mist/60 underline decoration-gold/20 underline-offset-4 transition-colors duration-300 hover:text-gold-glow"
+                                >
+                                    youtu.be/kOFFR8dTbak
+                                </a>
+                            </div>
                         </FadeUp>
                     </div>
                 </div>
@@ -185,7 +196,7 @@ const Libro = () => {
                         quando la casa si fa silenziosa.
                     </p>
                     <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
-                        <CTAButton to="/le-7-notti" testid="libro-notti-cta">
+                        <CTAButton href={LINKS.beacons} testid="libro-notti-cta">
                             Comincia stanotte
                         </CTAButton>
                         <CTAButton to="/lettera" testid="libro-lettera-cta">

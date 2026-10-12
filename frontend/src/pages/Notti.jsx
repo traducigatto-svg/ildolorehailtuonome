@@ -88,7 +88,7 @@ const Notti = () => {
                                 con lui.
                             </p>
                             <div className="mt-10">
-                                <CTAButton href={LINKS.beacons} sub="su Beacons" testid="notti-beacons-cta">
+                                <CTAButton href={LINKS.beacons} testid="notti-beacons-cta">
                                     Resta con me per sette notti
                                 </CTAButton>
                             </div>
@@ -184,7 +184,7 @@ const Notti = () => {
                             Quando vuoi. Anche stanotte.
                         </p>
                         <div className="mt-10">
-                            <CTAButton href={LINKS.beacons} sub="su Beacons" testid="notti-beacons-cta-2">
+                            <CTAButton href={LINKS.beacons} testid="notti-beacons-cta-2">
                                 Comincia stanotte
                             </CTAButton>
                         </div>
@@ -200,7 +200,7 @@ const Notti = () => {
                             aspetta. E intanto, la lettera è già tua.
                         </p>
                         <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
-                            <CTAButton to="/libro" testid="notti-libro-cta">
+                            <CTAButton href={LINKS.amazon} testid="notti-libro-cta">
                                 Scopri il libro guidato
                             </CTAButton>
                             <Link

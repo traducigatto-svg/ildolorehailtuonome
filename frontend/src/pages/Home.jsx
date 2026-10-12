@@ -21,6 +21,7 @@ const CARDS = [
         testid: "card-libro",
         img: IMAGES.coverLibro,
         alt: "Copertina del libro guidato Il dolore ha il tuo nome di Sabrina M.",
+        contain: true,
         eyebrow: "Il cuore",
         title: "Il libro",
         desc: "Un libro guidato per elaborare il lutto, custodire chi ami e tornare a vivere.",
@@ -30,6 +31,7 @@ const CARDS = [
         testid: "card-notti",
         img: IMAGES.coverNotti,
         alt: "Copertina de Le 7 notti di Sabrina M.: una lanterna accesa davanti alla notte",
+        contain: true,
         eyebrow: "Il primo passo",
         title: "Le 7 notti",
         desc: "Se un libro intero ti sembra troppo, comincia da sette notti.",
@@ -39,6 +41,7 @@ const CARDS = [
         testid: "card-lettera",
         img: IMAGES.paper,
         alt: "Carta antica su cui scrivere la propria lettera",
+        contain: false,
         eyebrow: "Un dono",
         title: "La lettera",
         desc: "Un posto, solo tuo, dove dire ciò che non hai fatto in tempo a dire.",
@@ -88,7 +91,7 @@ const Hero = () => {
                     </p>
                 </FadeUp>
                 <FadeUp delay={1.4} className="mt-12 flex flex-wrap items-center gap-4">
-                    <CTAButton to="/le-7-notti" testid="hero-cta-notti">
+                    <CTAButton href={LINKS.beacons} testid="hero-cta-notti">
                         Resta con me per sette notti
                     </CTAButton>
                     <Link
@@ -127,14 +130,18 @@ const ProductCards = () => (
                     <Link
                         to={c.to}
                         data-testid={c.testid}
-                        className="group relative block overflow-hidden rounded-2xl border border-gold/15"
+                        className="group relative block overflow-hidden rounded-2xl border border-gold/15 bg-[#0A0E1A]"
                     >
                         <div className="aspect-[3/4] overflow-hidden">
                             <img
                                 src={c.img}
                                 alt={c.alt}
                                 loading="lazy"
-                                className="h-full w-full object-cover opacity-70 transition-[transform,opacity] duration-700 ease-out group-hover:scale-105 group-hover:opacity-90"
+                                className={`h-full w-full transition-[transform,opacity] duration-700 ease-out group-hover:scale-[1.03] ${
+                                    c.contain
+                                        ? "object-contain opacity-90 group-hover:opacity-100"
+                                        : "object-cover opacity-70 group-hover:scale-105 group-hover:opacity-90"
+                                }`}
                             />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent" />
@@ -214,7 +221,7 @@ const BookHighlight = () => (
                     src={IMAGES.coverLibro}
                     alt="Copertina del libro guidato Il dolore ha il tuo nome"
                     loading="lazy"
-                    className="relative mx-auto aspect-[3/4] w-full max-w-sm rounded-lg border border-gold/25 object-cover shadow-[0_30px_80px_rgba(0,0,0,0.7)]"
+                    className="relative mx-auto aspect-[2/3] w-full max-w-sm rounded-lg border border-gold/25 object-cover shadow-[0_30px_80px_rgba(0,0,0,0.7)]"
                     whileHover={{ rotate: -1.2, scale: 1.02 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 />
@@ -261,13 +268,15 @@ const BookHighlight = () => (
                     </div>
                     <p className="mt-6 text-sm italic text-mist">
                         Non restare solo stanotte.{" "}
-                        <Link
-                            to="/le-7-notti"
+                        <a
+                            href={LINKS.beacons}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             data-testid="home-micro-cta-notti"
                             className="text-gold underline decoration-gold/30 underline-offset-4 transition-colors duration-300 hover:text-gold-glow"
                         >
                             Comincia da sette notti.
-                        </Link>
+                        </a>
                     </p>
                 </FadeUp>
             </div>
@@ -290,7 +299,7 @@ const NottiTeaser = () => (
                     lutto quando è buio. Una notte alla volta, senza fretta.
                 </p>
                 <div className="mt-10">
-                    <CTAButton to="/le-7-notti" testid="home-notti-cta">
+                    <CTAButton href={LINKS.beacons} testid="home-notti-cta">
                         Comincia stanotte
                     </CTAButton>
                 </div>

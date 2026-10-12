@@ -1,13 +1,14 @@
 import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Wind, PenLine } from "lucide-react";
+import { Link } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import Seo from "@/components/Seo";
 import StarrySky from "@/components/StarrySky";
 import Butterfly from "@/components/Butterfly";
 import { LineReveal, FadeUp } from "@/components/Reveal";
 import CTAButton from "@/components/CTAButton";
-import { ASSETS } from "@/constants";
+import { ASSETS, LINKS } from "@/constants";
 
 const Eyebrow = ({ children }) => (
     <p className="text-[11px] uppercase tracking-[0.35em] text-gold/80">
@@ -272,6 +273,16 @@ const Lettera = () => {
                                     </span>
                                 </CTAButton>
                             </div>
+                            <p className="mt-10 text-center text-sm italic leading-relaxed text-mist">
+                                E se una pagina sola non ti basta:{" "}
+                                <Link
+                                    to="/libro"
+                                    data-testid="lettera-libro-soft-cta"
+                                    className="text-gold underline decoration-gold/30 underline-offset-4 transition-colors duration-300 hover:text-gold-glow"
+                                >
+                                    nel libro guidato c'è tanto spazio per scrivere.
+                                </Link>
+                            </p>
                             {phase === "releasing" && (
                                 <WindRelease
                                     words={words}
@@ -301,10 +312,10 @@ const Lettera = () => {
                                 <span className="text-gold-glow"> e questo basta.</span>
                             </p>
                             <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
-                                <CTAButton to="/le-7-notti" testid="lettera-notti-cta">
+                                <CTAButton href={LINKS.beacons} testid="lettera-notti-cta">
                                     Resta con me per sette notti
                                 </CTAButton>
-                                <CTAButton to="/libro" testid="lettera-libro-cta">
+                                <CTAButton href={LINKS.amazon} testid="lettera-libro-cta">
                                     Scopri il libro guidato
                                 </CTAButton>
                             </div>
